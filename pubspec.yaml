@@ -1,6 +1,6 @@
 name: flexible_toast 
 description: A customizable Flutter notification library to display temporary messages.
-version: 0.0.1 
+version: 0.0.2 
 homepage: https://github.com/emrhnzngn/flexible_toast 
 repository: https://github.com/emrhnzngn/flexible_toast
 issue_tracker: https://github.com/emrhnzngn/flexible_toast/issues
