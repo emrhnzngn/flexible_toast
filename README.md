@@ -21,16 +21,16 @@
 <p><strong>Showcase the <code>flexible_toast</code> in action!</strong>
 Replace these placeholders with actual images, GIFs, or short MP4s to demonstrate your notifications.</p>
 <h3>Top Notification Example</h3>
-![1](https://github.com/user-attachments/assets/856f7a9f-62ac-4a25-b095-08c0930a7fff)
+<img src="https://github.com/user-attachments/assets/856f7a9f-62ac-4a25-b095-08c0930a7fff"><br>
 <em>A brief description of what this demo shows (e.g., "A success notification appearing at the top").</em></p>
 <h3>Center Notification Example</h3>
-![2](https://github.com/user-attachments/assets/7eea448a-fefd-4a0b-9ae1-3cf2ca1a55e2)
+<img src="https://github.com/user-attachments/assets/7eea448a-fefd-4a0b-9ae1-3cf2ca1a55e2"><br>
 <em>A brief description of what this demo shows (e.g., "A warning notification fading in at the center").</em></p>
 <h3>Bottom Notification Example</h3>
-![4](https://github.com/user-attachments/assets/2d9f9c35-7b14-450b-92de-a9b995b1cd43)
+<img src="https://github.com/user-attachments/assets/3c8d995e-0917-40c6-b5d9-6957206051d5"><br>
 <em>A brief description of what this demo shows (e.g., "An error notification sliding up from the bottom").</em></p>
 <h3>Custom Notification Example</h3>
-![6](https://github.com/user-attachments/assets/d751164e-7461-4c0c-9629-04444e3deded)
+<img src="https://github.com/user-attachments/assets/d751164e-7461-4c0c-9629-04444e3deded"><br>
 <em>A brief description of what this demo shows (e.g., "A fully customized notification with a unique icon and colors." ).</em></p>
 <hr>
 <h2>🚀 Getting Started</h2>
@@ -63,7 +63,7 @@ import 'package:flutter/material.dart'; // Make sure you import material.dart
   child: const Text('Show Success (Top)'),
 ),
 </code></pre>
-<p>![1](https://github.com/user-attachments/assets/0cc5dfc0-be11-4e67-8b29-03856cef17b0)</p>
+<p><img src="https://github.com/user-attachments/assets/0cc5dfc0-be11-4e67-8b29-03856cef17b0"></p>
 <h3>Warning Notification (Center)</h3>
 <pre><code class="language-dart">ElevatedButton(
   onPressed: () {
@@ -79,7 +79,7 @@ import 'package:flutter/material.dart'; // Make sure you import material.dart
   child: const Text('Show Warning (Center)'),
 ),
 </code></pre>
-<p>![2](https://github.com/user-attachments/assets/2c0f5eaf-fdfe-4a7f-89a7-cace96515127)</p>
+<p><img src="https://github.com/user-attachments/assets/2c0f5eaf-fdfe-4a7f-89a7-cace96515127"></p>
 <h3>Error Notification (Bottom)</h3>
 <pre><code class="language-dart">ElevatedButton(
   onPressed: () {
@@ -98,8 +98,7 @@ import 'package:flutter/material.dart'; // Make sure you import material.dart
   child: const Text('Show Error (Bottom)'),
 ),
 </code></pre>
-
-<p>![3](https://github.com/user-attachments/assets/a4b009bd-b230-4941-9902-6f18186365fc)</p>
+<p><img src="https://github.com/user-attachments/assets/a4b009bd-b230-4941-9902-6f18186365fc"></p>
 <hr>
 <h2>🎨 Customization</h2>
 <p><code>flexible_toast</code> offers extensive customization options.</p>
@@ -125,7 +124,7 @@ import 'package:flutter/material.dart'; // Make sure you import material.dart
 ),
 </code></pre>
 
-<p>![4](https://github.com/user-attachments/assets/f4bce8f3-17bf-441e-a288-c167a8b31eaa)</p>
+<p><img src="https://github.com/user-attachments/assets/f4bce8f3-17bf-441e-a288-c167a8b31eaa"></p>
 <h3>Using Widgets for Title and Message</h3>
 <p>You can provide any <code>Widget</code> for the title and message, giving you ultimate control over their appearance.</p>
 <pre><code class="language-dart">ElevatedButton(
@@ -159,7 +158,7 @@ import 'package:flutter/material.dart'; // Make sure you import material.dart
 ),
 </code></pre>
 
-<p>![5](https://github.com/user-attachments/assets/bffcb246-6dc1-4916-8161-b284b1ca8b66)</p>
+<p><img src="https://github.com/user-attachments/assets/bffcb246-6dc1-4916-8161-b284b1ca8b66"></p>
 <h3>Fixed Height and Width</h3>
 <pre><code class="language-dart">ElevatedButton(
   onPressed: () {
@@ -177,7 +176,7 @@ import 'package:flutter/material.dart'; // Make sure you import material.dart
   child: const Text('Show Fixed Size Notification'),
 ),
 </code></pre>
-<p>![6](https://github.com/user-attachments/assets/2671da60-a0aa-4e18-a84c-66a30752bade)</p>
+<p><img src="https://github.com/user-attachments/assets/2671da60-a0aa-4e18-a84c-66a30752bade"></p>
 <hr>
 <h2>🤝 Contributing</h2>
 <p>Contributions are welcome! If you find a bug or have a feature request, please open an issue on the <a href="https://github.com/emrhnzngn/flexible_toast/issues">GitHub repository</a>.</p>
