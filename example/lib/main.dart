@@ -129,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   dismissDirection:
                       DismissDirection.horizontal, // Can dismiss left/right
                   closeCallBack: () {
-                    print('Error notification was dismissed!');
+                    debugPrint('Error notification was dismissed!');
                   },
                 );
               },
