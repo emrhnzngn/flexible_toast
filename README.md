@@ -21,16 +21,16 @@
 <p><strong>Showcase the <code>flexible_toast</code> in action!</strong>
 Replace these placeholders with actual images, GIFs, or short MP4s to demonstrate your notifications.</p>
 <h3>Top Notification Example</h3>
-<p><img src="example/videos/1.mp4" alt="Top Notification GIF/MP4">
+https://github.com/user-attachments/assets/b8e639c9-a48a-40af-8f87-4860d55e50b5
 <em>A brief description of what this demo shows (e.g., "A success notification appearing at the top").</em></p>
 <h3>Center Notification Example</h3>
-<p><img src="example/videos/2.mp4" alt="Center Notification GIF/MP4">
+https://github.com/user-attachments/assets/655f6738-14b3-4f4f-ac4a-eebae3cfc588
 <em>A brief description of what this demo shows (e.g., "A warning notification fading in at the center").</em></p>
 <h3>Bottom Notification Example</h3>
-<p><img src="example/videos/4.mp4" alt="Bottom Notification GIF/MP4">
+https://github.com/user-attachments/assets/f5b9288e-6be9-4cc0-9ac0-863b9de1b158
 <em>A brief description of what this demo shows (e.g., "An error notification sliding up from the bottom").</em></p>
 <h3>Custom Notification Example</h3>
-<p><img src="example/videos/6.mp4" alt="Custom Notification GIF/MP4">
+https://github.com/user-attachments/assets/490c4bcf-6a58-43fc-a0fa-fd15a729fe04
 <em>A brief description of what this demo shows (e.g., "A fully customized notification with a unique icon and colors." ).</em></p>
 <hr>
 <h2>🚀 Getting Started</h2>
