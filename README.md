@@ -45,40 +45,6 @@ Replace these placeholders with actual images, GIFs, or short MP4s to demonstrat
 <pre><code class="language-dart">import 'package:flexible_toast/flexible_toast.dart';
 import 'package:flutter/material.dart'; // Make sure you import material.dart
 </code></pre>
-<h3>3. Mixin <code>SingleTickerProviderStateMixin</code></h3>
-<p>Since <code>CNotify</code> uses <code>AnimationController</code>, the <code>BuildContext</code> you provide to <code>CNotify.show</code> must come from a <code>StatefulWidget</code> whose <code>State</code> class has <code>SingleTickerProviderStateMixin</code> (or <code>TickerProviderStateMixin</code> if you have multiple animations).</p>
-<p>Here's how your <code>StatefulWidget</code> should look:</p>
-<pre><code class="language-dart">import 'package:flutter/material.dart';
-import 'package:flexible_toast/flexible_toast.dart'; // Your package import
-
-class MyPage extends StatefulWidget {
-  const MyPage({Key? key}) : super(key: key);
-
-  @override
-  State<MyPage> createState() =&gt; _MyPageState();
-}
-
-class _MyPageState extends State<MyPage> with SingleTickerProviderStateMixin {
-  // You can use 'this' as the TickerProvider directly within the State class.
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Flexible Toast Demo'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Your buttons or other UI elements
-          ],
-        ),
-      ),
-    );
-  }
-}
-</code></pre>
 <hr>
 <h2>💡 Usage Examples</h2>
 <p>The <code>CNotify.show</code> static method is all you need!</p>
