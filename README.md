@@ -1,7 +1,7 @@
 <h1><code>flexible_toast</code></h1>
 <p><a href="https://pub.dev/packages/flexible_toast"><img src="https://img.shields.io/pub/v/flexible_toast" alt="Pub Version"></a>
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="License: MIT"></a>
-<a href="https://github.com/YOUR_GITHUB_USERNAME/flexible_toast"><img src="https://img.shields.io/github/stars/YOUR_GITHUB_USERNAME/flexible_toast?style=social" alt="Stars"></a></p>
+<a href="https://github.com/emrhnzngn/flexible_toast"><img src="https://img.shields.io/github/stars/emrhnzngn/flexible_toast?style=social" alt="Stars"></a></p>
 <p>A highly customizable, transient notification system for Flutter, similar to Android's "Toast" or a simplified "Snackbar." Display beautiful, adaptable notifications at the top, center, or bottom of your screen that disappear automatically or can be dismissed by the user.</p>
 <hr>
 <h2>✨ Features</h2>
@@ -21,16 +21,16 @@
 <p><strong>Showcase the <code>flexible_toast</code> in action!</strong>
 Replace these placeholders with actual images, GIFs, or short MP4s to demonstrate your notifications.</p>
 <h3>Top Notification Example</h3>
-<p><img src="assets/top_notification.gif" alt="Top Notification GIF/MP4">
+<p><img src="example/videos/1.mp4" alt="Top Notification GIF/MP4">
 <em>A brief description of what this demo shows (e.g., "A success notification appearing at the top").</em></p>
 <h3>Center Notification Example</h3>
-<p><img src="assets/center_notification.mp4" alt="Center Notification GIF/MP4">
+<p><img src="example/videos/2.mp4" alt="Center Notification GIF/MP4">
 <em>A brief description of what this demo shows (e.g., "A warning notification fading in at the center").</em></p>
 <h3>Bottom Notification Example</h3>
-<p><img src="assets/bottom_notification.gif" alt="Bottom Notification GIF/MP4">
+<p><img src="example/videos/4.mp4" alt="Bottom Notification GIF/MP4">
 <em>A brief description of what this demo shows (e.g., "An error notification sliding up from the bottom").</em></p>
 <h3>Custom Notification Example</h3>
-<p><img src="assets/custom_notification.png" alt="Custom Notification GIF/MP4">
+<p><img src="example/videos/6.mp4" alt="Custom Notification GIF/MP4">
 <em>A brief description of what this demo shows (e.g., "A fully customized notification with a unique icon and colors." ).</em></p>
 <hr>
 <h2>🚀 Getting Started</h2>
@@ -53,7 +53,6 @@ import 'package:flutter/material.dart'; // Make sure you import material.dart
   onPressed: () {
     CNotify.show(
       context: context,
-      tickerProvider: this, // Don't forget to pass 'this'
       title: 'Success!',
       message: 'Your operation was completed successfully.',
       type: NotifyType.success,
@@ -64,13 +63,12 @@ import 'package:flutter/material.dart'; // Make sure you import material.dart
   child: const Text('Show Success (Top)'),
 ),
 </code></pre>
-<p><img src="assets/example_success_top.png" alt="Example Success Top"></p>
+<p><img src="example/videos/1.mp4" alt="Example Success Top"></p>
 <h3>Warning Notification (Center)</h3>
 <pre><code class="language-dart">ElevatedButton(
   onPressed: () {
     CNotify.show(
       context: context,
-      tickerProvider: this, // Pass 'this'
       title: 'Heads Up!',
       message: 'Something needs your attention. Please review.',
       type: NotifyType.warning,
@@ -81,13 +79,12 @@ import 'package:flutter/material.dart'; // Make sure you import material.dart
   child: const Text('Show Warning (Center)'),
 ),
 </code></pre>
-<p><img src="assets/example_warning_center.png" alt="Example Warning Center"></p>
+<p><img src="example/videos/2.mp4" alt="Example Warning Center"></p>
 <h3>Error Notification (Bottom)</h3>
 <pre><code class="language-dart">ElevatedButton(
   onPressed: () {
     CNotify.show(
       context: context,
-      tickerProvider: this, // Pass 'this'
       title: 'Error Occurred!',
       message: 'Failed to save data. Please try again.',
       type: NotifyType.error,
@@ -101,7 +98,7 @@ import 'package:flutter/material.dart'; // Make sure you import material.dart
   child: const Text('Show Error (Bottom)'),
 ),
 </code></pre>
-<p><img src="assets/example_error_bottom.png" alt="Example Error Bottom"></p>
+<p><img src="example/videos/3.mp4" alt="Example Error Bottom"></p>
 <hr>
 <h2>🎨 Customization</h2>
 <p><code>flexible_toast</code> offers extensive customization options.</p>
@@ -110,7 +107,6 @@ import 'package:flutter/material.dart'; // Make sure you import material.dart
   onPressed: () {
     CNotify.show(
       context: context,
-      tickerProvider: this,
       title: 'Custom Alert!',
       message: 'This is a notification with a custom look.',
       type: NotifyType.warning, // Can still use a type for defaults not overridden
@@ -127,14 +123,13 @@ import 'package:flutter/material.dart'; // Make sure you import material.dart
   child: const Text('Show Custom Notification'),
 ),
 </code></pre>
-<p><img src="assets/example_custom.png" alt="Example Custom"></p>
+<p><img src="example/videos/4.mp4" alt="Example Custom"></p>
 <h3>Using Widgets for Title and Message</h3>
 <p>You can provide any <code>Widget</code> for the title and message, giving you ultimate control over their appearance.</p>
 <pre><code class="language-dart">ElevatedButton(
   onPressed: () {
     CNotify.show(
       context: context,
-      tickerProvider: this,
       titleWidget: Row(
         children: [
           Icon(Icons.thumb_up, color: Colors.lightGreenAccent),
@@ -161,16 +156,15 @@ import 'package:flutter/material.dart'; // Make sure you import material.dart
   child: const Text('Show Widget-Based Notification'),
 ),
 </code></pre>
-<p><img src="assets/example_widget_based.png" alt="Example Widget Based"></p>
+<p><img src="example/videos/5.mp4" alt="Example Widget Based"></p>
 <h3>Fixed Height and Width</h3>
 <pre><code class="language-dart">ElevatedButton(
   onPressed: () {
     CNotify.show(
       context: context,
-      tickerProvider: this,
       title: 'Fixed Size',
       message: 'This notification has a predefined height and width.',
-      type: NotifyType.info, // Assuming you add an info type or use default
+      type: NotifyType.warning, // Assuming you add an warning type or use default
       backgroundColor: Colors.blueGrey,
       height: 80.0,
       width: 300.0,
@@ -180,7 +174,7 @@ import 'package:flutter/material.dart'; // Make sure you import material.dart
   child: const Text('Show Fixed Size Notification'),
 ),
 </code></pre>
-<p><img src="assets/example_fixed_size.png" alt="Example Fixed Size"></p>
+<p><img src="example/videos/6.mp4" alt="Example Fixed Size"></p>
 <hr>
 <h2>🤝 Contributing</h2>
 <p>Contributions are welcome! If you find a bug or have a feature request, please open an issue on the <a href="https://github.com/emrhnzngn/flexible_toast/issues">GitHub repository</a>.</p>

@@ -55,19 +55,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  void showNotify() {
-    CNotify.show(
-      context: context,
-      titleColor: Colors.black,
-      messageColor: Colors.white,
-      dismissDirection: DismissDirection.up,
-      position: NotifyPosition.top,
-      title: "Success",
-      message: "Very Success",
-      type: NotifyType.success,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -105,16 +92,126 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text('0', style: Theme.of(context).textTheme.headlineMedium),
+            ElevatedButton(
+              onPressed: () {
+                CNotify.show(
+                  context: context,
+                  title: 'Success!',
+                  message: 'Your operation was completed successfully.',
+                  type: NotifyType.success,
+                  position: NotifyPosition.top,
+                  duration: 3000, // 3 seconds
+                );
+              },
+              child: const Text('Show Success (Top)'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                CNotify.show(
+                  context: context,
+                  title: 'Heads Up!',
+                  message: 'Something needs your attention. Please review.',
+                  type: NotifyType.warning,
+                  position: NotifyPosition.center,
+                  duration: 5000, // 5 seconds
+                );
+              },
+              child: const Text('Show Warning (Center)'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                CNotify.show(
+                  context: context,
+                  title: 'Error Occurred!',
+                  message: 'Failed to save data. Please try again.',
+                  type: NotifyType.error,
+                  position: NotifyPosition.bottom,
+                  dismissDirection:
+                      DismissDirection.horizontal, // Can dismiss left/right
+                  closeCallBack: () {
+                    print('Error notification was dismissed!');
+                  },
+                );
+              },
+              child: const Text('Show Error (Bottom) with callback'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                CNotify.show(
+                  context: context,
+
+                  title: 'Custom Alert!',
+                  message: 'This is a notification with a custom look.',
+                  type: NotifyType
+                      .warning, // Can still use a type for defaults not overridden
+                  position: NotifyPosition.top,
+                  backgroundColor:
+                      Colors.deepPurple, // Overrides type-specific color
+                  successIcon: const Icon(
+                    Icons.star_rounded,
+                    color: Colors.amberAccent,
+                  ), // Custom icon for success
+                  titleColor: Colors.amberAccent,
+                  messageColor: Colors.white70,
+                  closeIcon: const Icon(Icons.close, color: Colors.white),
+                  elevation: 8.0,
+                  padding: const EdgeInsets.all(
+                    20.0,
+                  ).copyWith(top: kToolbarHeight), // More padding
+                );
+              },
+              child: const Text('Show Custom Notification'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                CNotify.show(
+                  context: context,
+                  titleWidget: Row(
+                    children: [
+                      Icon(Icons.thumb_up, color: Colors.lightGreenAccent),
+                      SizedBox(width: 8),
+                      Text(
+                        'Operation Complete!',
+                        style: TextStyle(
+                          color: Colors.lightGreenAccent,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
+                  ),
+                  messageWidget: Text(
+                    'All files have been successfully synchronized to the cloud.',
+                    style: TextStyle(color: Colors.white, fontSize: 13),
+                  ),
+                  backgroundColor: Colors.green.shade800,
+                  position: NotifyPosition.top,
+                  duration: 4000,
+                );
+              },
+              child: const Text('Show Widget-Based Notification'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                CNotify.show(
+                  context: context,
+
+                  title: 'Fixed Size',
+                  message:
+                      'This notification has a predefined height and width.',
+                  type: NotifyType
+                      .warning, // Assuming you add an info type or use default
+                  backgroundColor: Colors.blueGrey,
+                  height: 80.0,
+                  width: 300.0,
+                  position: NotifyPosition.center,
+                );
+              },
+              child: const Text('Show Fixed Size Notification'),
+            ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: showNotify,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
