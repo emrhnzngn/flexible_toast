@@ -2,67 +2,144 @@ import 'package:flexible_toast/src/src.dart';
 import 'package:flutter/material.dart';
 
 /// A customizable, transient notification class (similar to toast/snackbar).
+///
 /// These notifications appear at the top, center, or bottom of the screen
 /// and disappear after a specified duration or when dismissed by the user.
 class CNotify {
-  final String? title; // Optional string title for the notification.
-  final Widget?
-  titleWidget; // Optional custom widget for the notification title. If both are provided, titleWidget takes precedence.
-  final int?
-  duration; // Duration in milliseconds the notification stays on screen. Defaults to 5000ms.
-  final NotifyType?
-  type; // Type of notification (success, warning, error). Defaults to NotifyType.error.
-  final String? message; // The main string message of the notification.
-  final Widget?
-  messageWidget; // Optional custom widget for the notification message. If both are provided, messageWidget takes precedence.
-  final Widget? successIcon; // Custom icon for success notifications.
-  final Color? successIconColor; // Custom icon color for success notifications.
-  final Widget? warningIcon; // Custom icon for warning notifications.
-  final Color? warningIconColor; // Custom icon color for warning notifications.
-  final Widget? errorIcon; // Custom icon for error notifications.
-  final Color? errorIconColor; // Custom icon color for error notifications.
-  final Color?
-  successColor; // Custom background color for success notifications. Defaults to Colors.blue.
-  final Color?
-  warningColor; // Custom background color for warning notifications. Defaults to Colors.orange.
-  final Color?
-  errorColor; // Custom background color for error notifications. Defaults to Colors.red.
-  final Color?
-  backgroundColor; // Custom background color for the notification card, overrides type-specific colors.
-  final Color?
-  titleColor; // Custom title text color for the notification. Defaults to Colors.white.
-  final Color?
-  messageColor; // Custom message text color for the notification. Defaults to Colors.white.
-  final Widget? closeIcon; // Custom close icon for the notification.
-  final Color?
-  closeColor; // Custom close icon color for the notification. Defaults to Colors.white.
-  final double?
-  height; // Optional fixed height for the notification card. If null, the height adapts to content.
-  final double?
-  width; // Optional fixed width for the notification card. If null, the width adapts to content.
-  final double?
-  elevation; // Optional custom elevation (shadow depth) for the notification card. Defaults to 4.
-  final EdgeInsets?
-  padding; // Optional custom padding around the notification card. Defaults vary based on position.
-  final DismissDirection?
-  dismissDirection; // Optional custom dismiss direction for the swipe-to-dismiss gesture. Defaults to DismissDirection.up.
-  final NotifyPosition
-  position; // Position where the notification will be displayed (top, center, bottom). Defaults to NotifyPosition.top.
+  /// Optional string title for the notification.
+  final String? title;
 
-  bool _isOpen = false; // Indicates whether the notification is currently open.
-  late OverlayEntry
-  _overlayEntry; // The OverlayEntry where the notification is displayed.
-  late AnimationController
-  _animationController; // Controls the entrance/exit animation of the notification.
-  VoidCallback?
-  closeCallBack; // Callback function to be executed when the notification is dismissed.
+  /// Optional custom widget for the notification title.
+  ///
+  /// If both [title] and [titleWidget] are provided, [titleWidget] takes precedence.
+  final Widget? titleWidget;
 
-  // Static variable: Keeps track of the currently active CNotify instance.
-  // This ensures that only one notification is shown at a time to prevent UI clutter.
+  /// Duration in milliseconds the notification stays on screen.
+  ///
+  /// Defaults to 5000ms.
+  final int? duration;
+
+  /// Type of notification (success, warning, error).
+  ///
+  /// Defaults to [NotifyType.error].
+  final NotifyType? type;
+
+  /// The main string message of the notification.
+  final String? message;
+
+  /// Optional custom widget for the notification message.
+  ///
+  /// If both [message] and [messageWidget] are provided, [messageWidget] takes precedence.
+  final Widget? messageWidget;
+
+  /// Custom icon for success notifications.
+  final Widget? successIcon;
+
+  /// Custom icon color for success notifications.
+  final Color? successIconColor;
+
+  /// Custom icon for warning notifications.
+  final Widget? warningIcon;
+
+  /// Custom icon color for warning notifications.
+  final Color? warningIconColor;
+
+  /// Custom icon for error notifications.
+  final Widget? errorIcon;
+
+  /// Custom icon color for error notifications.
+  final Color? errorIconColor;
+
+  /// Custom background color for success notifications.
+  ///
+  /// Defaults to [Colors.blue].
+  final Color? successColor;
+
+  /// Custom background color for warning notifications.
+  ///
+  /// Defaults to [Colors.orange].
+  final Color? warningColor;
+
+  /// Custom background color for error notifications.
+  ///
+  /// Defaults to [Colors.red].
+  final Color? errorColor;
+
+  /// Custom background color for the notification card.
+  ///
+  /// This color overrides type-specific colors ([successColor], [warningColor], [errorColor]).
+  final Color? backgroundColor;
+
+  /// Custom title text color for the notification.
+  ///
+  /// Defaults to [Colors.white].
+  final Color? titleColor;
+
+  /// Custom message text color for the notification.
+  ///
+  /// Defaults to [Colors.white].
+  final Color? messageColor;
+
+  /// Custom close icon for the notification.
+  ///
+  /// If null, a default [Icons.cancel] icon is used.
+  final Widget? closeIcon;
+
+  /// Custom close icon color for the notification.
+  ///
+  /// Defaults to [Colors.white].
+  final Color? closeColor;
+
+  /// Optional fixed height for the notification card.
+  ///
+  /// If null, the height adapts to content.
+  final double? height;
+
+  /// Optional fixed width for the notification card.
+  ///
+  /// If null, the width adapts to content.
+  final double? width;
+
+  /// Optional custom elevation (shadow depth) for the notification card.
+  ///
+  /// Defaults to 4.
+  final double? elevation;
+
+  /// Optional custom padding around the notification card.
+  ///
+  /// Defaults vary based on [position].
+  final EdgeInsets? padding;
+
+  /// Optional custom dismiss direction for the swipe-to-dismiss gesture.
+  ///
+  /// Defaults to [DismissDirection.up].
+  final DismissDirection? dismissDirection;
+
+  /// Position where the notification will be displayed (top, center, bottom).
+  ///
+  /// Defaults to [NotifyPosition.top].
+  final NotifyPosition position;
+
+  /// Indicates whether the notification is currently open.
+  bool _isOpen = false;
+
+  /// The [OverlayEntry] where the notification is displayed.
+  late OverlayEntry _overlayEntry;
+
+  /// Controls the entrance/exit animation of the notification.
+  late AnimationController _animationController;
+
+  /// Callback function to be executed when the notification is dismissed.
+  VoidCallback? closeCallBack;
+
+  /// Keeps track of the currently active [CNotify] instance.
+  ///
+  /// This ensures that only one notification is shown at a time to prevent UI clutter.
   static CNotify? _currentNotify;
 
   /// Private constructor to enforce static `show` method usage.
-
+  ///
+  /// Initializes the notification with the given properties and starts the display process.
   CNotify._({
     required OverlayEntry overlayEntry,
     this.duration,
@@ -203,7 +280,10 @@ class CNotify {
     overlay.insert(_currentNotify!._overlayEntry);
   }
 
-  /// Internal method to handle showing the notification content within the OverlayEntry.
+  /// Internal method to handle showing the notification content within the [OverlayEntry].
+  ///
+  /// This method sets up the animation, determines colors and icons based on type,
+  /// builds the notification UI, and schedules its automatic dismissal.
   void _showInternal() {
     _animationController.forward(); // Start the entrance animation
     _isOpen = true; // Mark the notification as open
@@ -388,7 +468,9 @@ class CNotify {
     });
   }
 
-  /// Builds the core notification card content.
+  /// Builds the core notification card content, including icon, title, message, and close button.
+  ///
+  /// This method is responsible for constructing the visual layout of the toast notification.
   Widget _buildNotificationCard(
     Color cardColor,
     Widget icon,
@@ -479,11 +561,10 @@ class CNotify {
 
   /// Manually dismisses the current notification.
   ///
-  /// This method is intended for internal use via the static `show` method,
+  /// This method is intended for internal use via the static [show] method,
   /// or triggered by user interaction (swipe, close icon tap) or automatic timeout.
   /// It handles the animation reversal, removes the overlay entry,
-  /// clears the static reference to this notification, and invokes the `closeCallBack`.
-
+  /// clears the static reference to this notification, and invokes the [closeCallBack].
   void _dismissInternal() {
     if (_isOpen) {
       _animationController.reverse().then((_) {
